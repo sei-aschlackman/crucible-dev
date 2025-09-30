@@ -1,0 +1,24 @@
+{
+  "repositories": [
+    {
+        "name": "player.api",
+        "group": "player",
+        "url": "https://github.com/cmu-sei/player.api"
+    },
+    {
+        "name": "player.ui",
+        "group": "player",
+        "url": "https://github.com/cmu-sei/player.ui"
+    },
+    {
+        "name": "caster.api",
+        "group": "caster",
+        "url": "https://github.com/cmu-sei/caster.api"
+    },
+    {
+        "name": "caster.ui",
+        "group": "caster",
+        "url": "https://github.com/cmu-sei/caster.ui"
+    }
+  ]
+}

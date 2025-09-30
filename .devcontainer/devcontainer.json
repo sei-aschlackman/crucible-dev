@@ -1,0 +1,47 @@
+{
+  "name": "Crucible Development",
+  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+  "image": "mcr.microsoft.com/devcontainers/dotnet:9.0-bookworm",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+  },
+
+  //"mounts": ["source=crucible-data,target=/workspaces/crucible,type=volume"],
+
+  //   "hostRequirements": {
+  //     "cpus": 8,
+  //     "memory": "32gb",
+  //     "storage": "64gb"
+  //   },
+
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // "forwardPorts": [5000, 5001],
+  // "portsAttributes": {
+  //		"5001": {
+  //			"protocol": "https"
+  //		}
+  // }
+
+  // Use 'postCreateCommand' to run commands after the container is created.
+  // "postCreateCommand": "dotnet restore",
+  // "onCreateCommand": "curl -sSL https://aspire.dev/install.sh | bash",
+  // "postStartCommand": "dotnet dev-certs https --trust",
+
+  //"workspaceMount": "source=crucible-dev,target=/workspaces,type=volume",
+  // "workspaceFolder": "/workspaces/aspire",
+
+  "onCreateCommand": "bash -l .devcontainer/postcreate.sh",
+
+  // "onCreateCommand": [
+  //   "git clone https://github.com/cmu-sei/player.api /workspaces/crucible/player/player.api",
+  //   "git clone https://github.com/cmu-sei/player.ui /workspaces/crucible/player/player.ui"
+  // ],
+
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-dotnettools.csharp"]
+    }
+  }
+  // Configure tool-specific properties.
+  // "customizations": {},
+}

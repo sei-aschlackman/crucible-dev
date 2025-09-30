@@ -1,0 +1,16 @@
+{
+  "folders": [
+    {
+      "path": "."
+    },
+    {
+      "path": "apps/crucible/player"
+    },
+    {
+      "path": "apps/crucible/caster"
+    }
+  ],
+  "settings": {
+    //"dotnet.defaultSolution": "crucible-dev/Crucible.slnx"
+  }
+}
