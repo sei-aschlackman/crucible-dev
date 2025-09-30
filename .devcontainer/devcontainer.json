@@ -1,0 +1,30 @@
+{
+  "name": "Crucible Development",
+  "image": "mcr.microsoft.com/devcontainers/dotnet:9.0-bookworm",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    "ghcr.io/devcontainers/features/dotnet:2": {
+      "version": "8.0",
+      "additionalVersions": "7.0, 6.0"
+    },
+    "ghcr.io/devcontainers/features/node:1": {}
+  },
+  "updateRemoteUserUID": true,
+  "containerEnv": {
+    "NUGET_PACKAGES": "/home/vscode/.nuget/packages" // this might not be needed. will try removing later.
+  },
+  "mounts": [
+    "source=crucible-dev-microsoft,target=/home/vscode/.microsoft,type=volume", // persist usersecrets across container rebuilds
+    "source=crucible-dev-data,target=/mnt/data/,type=volume"
+  ],
+  "onCreateCommand": "bash -l .devcontainer/postcreate.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-dotnettools.csdevkit",
+        "ms-dotnettools.csharp",
+        "microsoft-aspire.aspire-vscode@prerelease" // no official release yet, so have to specify pre-release version
+      ]
+    }
+  }
+}
