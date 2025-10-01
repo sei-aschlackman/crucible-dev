@@ -11,6 +11,6 @@
     }
   ],
   "settings": {
-    //"dotnet.defaultSolution": "crucible-dev/Crucible.slnx"
+    "dotnet.defaultSolution": "Crucible.slnx"
   }
 }

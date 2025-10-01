@@ -1,9 +1,12 @@
 {
   "name": "Crucible Development",
-  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
   "image": "mcr.microsoft.com/devcontainers/dotnet:9.0-bookworm",
   "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    "ghcr.io/devcontainers/features/dotnet:2": {
+      "version": "8.0",
+      "additionalVersions": "7.0, 6.0"
+    }
   },
 
   "containerEnv": {
@@ -13,8 +16,8 @@
   //"mounts": ["source=crucible-data,target=/workspaces/crucible,type=volume"],
 
   "mounts": [
-      "source=crucible-dev-microsoft,target=/home/vscode/.microsoft,type=volume"
-  ]
+    "source=crucible-dev-microsoft,target=/home/vscode/.microsoft,type=volume" // persist usersecrets across container rebuilds
+  ],
 
   //   "hostRequirements": {
   //     "cpus": 8,
@@ -40,16 +43,12 @@
 
   "onCreateCommand": "bash -l .devcontainer/postcreate.sh",
 
-  // "onCreateCommand": [
-  //   "git clone https://github.com/cmu-sei/player.api /workspaces/crucible/player/player.api",
-  //   "git clone https://github.com/cmu-sei/player.ui /workspaces/crucible/player/player.ui"
-  // ],
-
   "customizations": {
     "vscode": {
-      "extensions": ["ms-dotnettools.csharp"]
+      "extensions": [
+        "ms-dotnettools.csharp", 
+        "microsoft-aspire.aspire-vscode"
+      ]
     }
   }
-  // Configure tool-specific properties.
-  // "customizations": {},
 }

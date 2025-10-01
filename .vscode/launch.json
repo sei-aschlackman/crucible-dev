@@ -5,15 +5,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": ".NET Core Launch (console)",
-            "type": "coreclr",
+            "type": "aspire",
             "request": "launch",
-            "preLaunchTask": "build",
-            "program": "${workspaceFolder}/Crucible.AppHost/bin/Debug/net9.0/Crucible.AppHost.dll",
-            "args": [],
-            "cwd": "${workspaceFolder}/Crucible.AppHost",
-            "console": "internalConsole",
-            "stopAtEntry": false
+            "name": "Aspire: Launch Default AppHost",
+            "program": ""
         },
         {
             "name": ".NET Core Attach",

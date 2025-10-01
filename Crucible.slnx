@@ -1,4 +1,10 @@
 <Solution>
+  <Folder Name="/apps/" />
+  <Folder Name="/apps/crucible/" />
+  <Folder Name="/apps/crucible/player/" />
+  <Folder Name="/apps/crucible/player/player.api/">
+    <Project Path="apps/crucible/player/player.api/Player.Api/Player.Api.csproj" />
+  </Folder>
   <Project Path="Crucible.AppHost/Crucible.AppHost.csproj" />
   <Project Path="Crucible.ServiceDefaults/Crucible.ServiceDefaults.csproj" />
 </Solution>
