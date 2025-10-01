@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Crucible.AppHost/Crucible.AppHost.csproj" />
+  <Project Path="Crucible.ServiceDefaults/Crucible.ServiceDefaults.csproj" />
+</Solution>

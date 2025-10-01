@@ -7,3 +7,5 @@ chmod +x .devcontainer/clone-repos.sh
 .devcontainer/clone-repos.sh
 
 dotnet tool install -g Aspire.Cli
+dotnet dev-certs https --trust
+sudo chown -R $(whoami): /home/vscode/.microsoft

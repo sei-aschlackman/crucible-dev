@@ -1,3 +1,7 @@
 {
-  "dotnet.defaultSolution": "Crucible.sln"
+  "dotnet.defaultSolution": "Crucible.sln",
+  "dotnet.server.useOmnisharp": false,
+  //"omnisharp.useModernNet": true,
+  //"dotnet.server.path": "/usr/share/dotnet/dotnet",
+  "dotnet.server.startTimeout": 60000
 }
