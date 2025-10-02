@@ -22,7 +22,7 @@
     "vscode": {
       "extensions": [
         "ms-dotnettools.csharp", 
-        "microsoft-aspire.aspire-vscode@0.3.0" // no official release yet, so have to specify pre-release version
+        "microsoft-aspire.aspire-vscode@prerelease" // no official release yet, so have to specify pre-release version
       ]
     }
   }
