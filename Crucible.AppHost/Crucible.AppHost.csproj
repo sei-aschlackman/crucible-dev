@@ -19,6 +19,8 @@
 
   <ItemGroup>
     <ProjectReference Include="/mnt/data/crucible/player/player.api/Player.Api/Player.Api.csproj" />
+    <ProjectReference Include="/mnt/data/crucible/caster/caster.api/src/Caster.Api/Caster.Api.csproj" />
+    <ProjectReference Include="/mnt/data/crucible/topomojo/topomojo/src/TopoMojo.Api/TopoMojo.Api.csproj" />
   </ItemGroup>
 
 </Project>

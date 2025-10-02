@@ -2,6 +2,12 @@
   <Folder Name="/mnt/data/crucible/player/player.api/">
     <Project Path="/mnt/data/crucible/player/player.api/Player.Api/Player.Api.csproj" />
   </Folder>
+  <Folder Name="/mnt/data/crucible/caster/caster.api/">
+    <Project Path="/mnt/data/crucible/caster/caster.api/src/Caster.Api/Caster.Api.csproj" />
+  </Folder>
+  <Folder Name="/mnt/data/crucible/topomojo/topomojo/">
+    <Project Path="/mnt/data/crucible/topomojo/topomojo/src/TopoMojo.Api/TopoMojo.Api.csproj" />
+  </Folder>
   <Project Path="Crucible.AppHost/Crucible.AppHost.csproj" />
   <Project Path="Crucible.ServiceDefaults/Crucible.ServiceDefaults.csproj" />
 </Solution>

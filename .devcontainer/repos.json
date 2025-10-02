@@ -19,6 +19,16 @@
         "name": "caster.ui",
         "group": "caster",
         "url": "https://github.com/cmu-sei/caster.ui"
+    },
+    {
+        "name": "topomojo",
+        "group": "topomojo",
+        "url": "https://github.com/cmu-sei/TopoMojo"
+    },
+    {
+        "name": "topomojo-ui",
+        "group": "topomojo",
+        "url": "https://github.com/cmu-sei/TopoMojo-ui"
     }
   ]
 }
