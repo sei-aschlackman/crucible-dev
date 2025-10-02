@@ -11,40 +11,13 @@
   },
   "updateRemoteUserUID": true,
   "containerEnv": {
-    "NUGET_PACKAGES": "/home/vscode/.nuget/packages"
+    "NUGET_PACKAGES": "/home/vscode/.nuget/packages" // this might not be needed. will try removing later.
   },
-
-  //"mounts": ["source=crucible-data,target=/workspaces/crucible,type=volume"],
-
   "mounts": [
     "source=crucible-dev-microsoft,target=/home/vscode/.microsoft,type=volume", // persist usersecrets across container rebuilds
     "source=crucible-dev-data,target=/mnt/data/,type=volume"
   ],
-
-  //   "hostRequirements": {
-  //     "cpus": 8,
-  //     "memory": "32gb",
-  //     "storage": "64gb"
-  //   },
-
-  // Use 'forwardPorts' to make a list of ports inside the container available locally.
-  // "forwardPorts": [5000, 5001],
-  // "portsAttributes": {
-  //		"5001": {
-  //			"protocol": "https"
-  //		}
-  // }
-
-  // Use 'postCreateCommand' to run commands after the container is created.
-  // "postCreateCommand": "dotnet restore",
-  // "onCreateCommand": "curl -sSL https://aspire.dev/install.sh | bash",
-  // "postStartCommand": "dotnet dev-certs https --trust",
-
-  //"workspaceMount": "source=crucible-dev,target=/workspaces,type=volume",
-  // "workspaceFolder": "/workspaces/aspire",
-
   "onCreateCommand": "bash -l .devcontainer/postcreate.sh",
-
   "customizations": {
     "vscode": {
       "extensions": [

@@ -9,5 +9,10 @@
   ],
   "settings": {
     "dotnet.defaultSolution": "Crucible.slnx"
+  },
+  "extensions": {
+    "recommendations": [
+      "ms-vscode-remote.remote-containers"
+    ]
   }
 }
