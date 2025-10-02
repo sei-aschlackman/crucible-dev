@@ -10,41 +10,7 @@ var postgres = builder.AddPostgres("postgres")
 var keycloak = builder.AddKeycloak("keycloak", 8080)
     .WithRealmImport("./resources/crucible-realm.json");
 
-var playerDb = postgres.AddDatabase("playerDb", "player");
-
-var playerApi = builder.AddProject<Projects.Player_Api>("player-api", launchProfileName: "Player.Api")
-    .WaitFor(postgres)
-    .WaitFor(keycloak)
-    .WithHttpHealthCheck("api/health/ready")
-    .WithReference(playerDb, "PostgreSQL")
-    .WithEnvironment("Database__Provider", "PostgreSQL")
-    .WithEnvironment("Authorization__Authority", "http://localhost:8080/realms/crucible")
-    .WithEnvironment("Authorization__AuthorizationUrl", "http://localhost:8080/realms/crucible/protocol/openid-connect/auth")
-    .WithEnvironment("Authorization__TokenUrl", "http://localhost:8080/realms/crucible/protocol/openid-connect/token")
-    .WithEnvironment("Authorization__ClientId", "player.api");
-
-var playerUiRoot = "/mnt/data/crucible/player/player.ui";
-
-File.Copy("./resources/player.ui.json", $"{playerUiRoot}/src/assets/config/settings.env.json", overwrite: true);
-
-IResourceBuilder<ExecutableResource>? playerUiNpmInstall = null;
-
-if (!Directory.Exists($"{playerUiRoot}/node_modules"))
-{
-    playerUiNpmInstall = builder.AddExecutable(
-    "player-ui-install",
-    "npm",
-    workingDirectory: playerUiRoot,
-    "install");
-}
-
-var playerUi = builder.AddNpmApp("player-ui", playerUiRoot)
-        .WithHttpEndpoint(port: 4301, env: "PORT", isProxied: false);
-
-if (playerUiNpmInstall is not null)
-{
-    playerUi = playerUi.WaitForCompletion(playerUiNpmInstall);
-}
+builder.AddPlayer(postgres, keycloak);
 
 var casterDb = postgres.AddDatabase("casterDb", "caster");
 
@@ -131,3 +97,45 @@ if (topoUiNpmInstall is not null)
 }
 
 builder.Build().Run();
+
+public static class BuilderExtensions
+{
+    public static void AddPlayer(this IDistributedApplicationBuilder builder, IResourceBuilder<PostgresServerResource> postgres, IResourceBuilder<KeycloakResource> keycloak)
+    {
+        var playerDb = postgres.AddDatabase("playerDb", "player");
+
+        var playerApi = builder.AddProject<Projects.Player_Api>("player-api", launchProfileName: "Player.Api")
+            .WaitFor(postgres)
+            .WaitFor(keycloak)
+            .WithHttpHealthCheck("api/health/ready")
+            .WithReference(playerDb, "PostgreSQL")
+            .WithEnvironment("Database__Provider", "PostgreSQL")
+            .WithEnvironment("Authorization__Authority", "http://localhost:8080/realms/crucible")
+            .WithEnvironment("Authorization__AuthorizationUrl", "http://localhost:8080/realms/crucible/protocol/openid-connect/auth")
+            .WithEnvironment("Authorization__TokenUrl", "http://localhost:8080/realms/crucible/protocol/openid-connect/token")
+            .WithEnvironment("Authorization__ClientId", "player.api");
+
+        var playerUiRoot = "/mnt/data/crucible/player/player.ui";
+
+        File.Copy("./resources/player.ui.json", $"{playerUiRoot}/src/assets/config/settings.env.json", overwrite: true);
+
+        IResourceBuilder<ExecutableResource>? playerUiNpmInstall = null;
+
+        if (!Directory.Exists($"{playerUiRoot}/node_modules"))
+        {
+            playerUiNpmInstall = builder.AddExecutable(
+            "player-ui-install",
+            "npm",
+            workingDirectory: playerUiRoot,
+            "install");
+        }
+
+        var playerUi = builder.AddNpmApp("player-ui", playerUiRoot)
+                .WithHttpEndpoint(port: 4301, env: "PORT", isProxied: false);
+
+        if (playerUiNpmInstall is not null)
+        {
+            playerUi = playerUi.WaitForCompletion(playerUiNpmInstall);
+        }
+    }
+}
