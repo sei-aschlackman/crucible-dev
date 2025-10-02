@@ -21,7 +21,8 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "ms-dotnettools.csharp", 
+        "ms-dotnettools.csdevkit",
+        "ms-dotnettools.csharp",
         "microsoft-aspire.aspire-vscode@prerelease" // no official release yet, so have to specify pre-release version
       ]
     }
