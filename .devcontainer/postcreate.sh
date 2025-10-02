@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# required for those running ARM builds, possibly confined only to Angular 16. Try back later.
+sudo apt-get update
+sudo apt-get install -y python3-dev
+
 # Show git dirty status in zsh prompt
 git config devcontainers-theme.show-dirty 1
 
