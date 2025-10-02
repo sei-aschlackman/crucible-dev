@@ -7,7 +7,7 @@ jq -c '.repositories[]' $MANIFEST | while read repo; do
     NAME=$(echo $repo | jq -r .name)
     GROUP=$(echo $repo | jq -r .group)
     URL=$(echo $repo | jq -r .url)    
-    TARGET="apps/crucible/$GROUP/$NAME"
+    TARGET="/mnt/data/crucible/$GROUP/$NAME"
 
     if [ ! -d "$TARGET" ]; then
         echo "Cloning $NAME..."

@@ -6,9 +6,10 @@
     "ghcr.io/devcontainers/features/dotnet:2": {
       "version": "8.0",
       "additionalVersions": "7.0, 6.0"
-    }
+    },
+    "ghcr.io/devcontainers/features/node:1": {}
   },
-
+  "updateRemoteUserUID": true,
   "containerEnv": {
     "NUGET_PACKAGES": "/home/vscode/.nuget/packages"
   },
@@ -16,7 +17,8 @@
   //"mounts": ["source=crucible-data,target=/workspaces/crucible,type=volume"],
 
   "mounts": [
-    "source=crucible-dev-microsoft,target=/home/vscode/.microsoft,type=volume" // persist usersecrets across container rebuilds
+    "source=crucible-dev-microsoft,target=/home/vscode/.microsoft,type=volume", // persist usersecrets across container rebuilds
+    "source=crucible-dev-data,target=/mnt/data/,type=volume"
   ],
 
   //   "hostRequirements": {
@@ -47,7 +49,7 @@
     "vscode": {
       "extensions": [
         "ms-dotnettools.csharp", 
-        "microsoft-aspire.aspire-vscode"
+        "microsoft-aspire.aspire-vscode@0.3.0" // no official release yet, so have to specify pre-release version
       ]
     }
   }

@@ -8,12 +8,12 @@
             "type": "aspire",
             "request": "launch",
             "name": "Aspire: Launch Default AppHost",
-            "program": ""
+            "program": ""            
         },
         {
             "name": ".NET Core Attach",
             "type": "coreclr",
-            "request": "attach"
+            "request": "attach",
         }
     ]
 }

@@ -4,11 +4,8 @@
       "path": "."
     },
     {
-      "path": "apps/crucible/player"
+      "path": "/mnt/data/crucible"
     },
-    {
-      "path": "apps/crucible/caster"
-    }
   ],
   "settings": {
     "dotnet.defaultSolution": "Crucible.slnx"

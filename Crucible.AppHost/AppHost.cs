@@ -5,8 +5,6 @@ var postgres = builder.AddPostgres("postgres")
     .WithLifetime(ContainerLifetime.Persistent)
     .WithPgAdmin();
 
-//var postgresPasswordExpression = postgres.Resource.PasswordParameter;
-
 var playerDb = postgres.AddDatabase("playerDb", "player");
 
 // var keycloakDb = postgres.AddDatabase("keycloakDb", "keycloak");
@@ -24,5 +22,28 @@ var playerApi = builder.AddProject<Projects.Player_Api>("player-api", launchProf
     .WithEnvironment("Authorization__AuthorizationUrl", "http://localhost:8080/realms/crucible/protocol/openid-connect/auth")
     .WithEnvironment("Authorization__TokenUrl", "http://localhost:8080/realms/crucible/protocol/openid-connect/token")
     .WithEnvironment("Authorization_ClientId", "player.api");
+
+var playerUiRoot = "/mnt/data/crucible/player/player.ui";
+
+File.Copy("./resources/player.ui.json", $"{playerUiRoot}/src/assets/config/settings.env.json", overwrite: true);
+
+IResourceBuilder<ExecutableResource>? playerUiNpmInstall = null;
+
+if (!Directory.Exists($"{playerUiRoot}/node_modules"))
+{
+    playerUiNpmInstall = builder.AddExecutable(
+    "player-ui-install",
+    "npm",
+    workingDirectory: "/mnt/data/crucible/player/player.ui",
+    "install");
+}
+
+var playerUi = builder.AddNpmApp("player-ui", "/mnt/data/crucible/player/player.ui")
+        .WithHttpEndpoint(port: 4301, env: "PORT", isProxied: false);
+
+if (playerUiNpmInstall is not null)
+{
+    playerUi = playerUi.WaitFor(playerUiNpmInstall);
+}
 
 builder.Build().Run();
