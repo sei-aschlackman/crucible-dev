@@ -1,0 +1,59 @@
+{
+  "repositories": [
+    {
+        "name": "player.api",
+        "group": "player",
+        "url": "https://github.com/cmu-sei/player.api"
+    },
+    {
+        "name": "player.ui",
+        "group": "player",
+        "url": "https://github.com/cmu-sei/player.ui"
+    },
+    {
+        "name": "vm.api",
+        "group": "player",
+        "url": "https://github.com/cmu-sei/vm.api"
+    },
+    {
+        "name": "vm.ui",
+        "group": "player",
+        "url": "https://github.com/cmu-sei/vm.ui"
+    },
+    {
+        "name": "console.ui",
+        "group": "player",
+        "url": "https://github.com/cmu-sei/console.ui"
+    },
+    {
+        "name": "caster.api",
+        "group": "caster",
+        "url": "https://github.com/cmu-sei/caster.api"
+    },
+    {
+        "name": "caster.ui",
+        "group": "caster",
+        "url": "https://github.com/cmu-sei/caster.ui"
+    },
+    {
+        "name": "alloy.api",
+        "group": "alloy",
+        "url": "https://github.com/cmu-sei/alloy.api"
+    },
+    {
+        "name": "alloy.ui",
+        "group": "alloy",
+        "url": "https://github.com/cmu-sei/alloy.ui"
+    },
+    {
+        "name": "topomojo",
+        "group": "topomojo",
+        "url": "https://github.com/cmu-sei/TopoMojo"
+    },
+    {
+        "name": "topomojo-ui",
+        "group": "topomojo",
+        "url": "https://github.com/cmu-sei/TopoMojo-ui"
+    }
+  ]
+}
