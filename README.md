@@ -27,5 +27,4 @@ This repo is still under construction, so you may run into the occasional challe
 
 ## Known issues
 
-- Despite the fact that we've added Aspire as an extension in the devcontainer environment, it doesn't install automatically. If you rebuild your container, you'll need to manually install the extension using VS Code's Extensions pane. (This extension has also, at times, randomly disappeared from the Extension registry. No, we don't understand that either.)
-- While this reliably happens with Aspire's extension, it seems to occasionally happen with other extensions (e.g. C#). If you see weird intellisense behavior or have compilation/debugging problems, ensure all extensions in the `devcontainers.json` file are installed in your container.
+- Some extensions (e.g. C#) very rarely seem to fail to install in the container's VS Code environment. If you see weird intellisense behavior or have compilation/debugging problems, ensure all extensions in the `devcontainers.json` file are installed in your container.
