@@ -51,24 +51,9 @@ public static class BuilderExtensions
 
         File.Copy("./resources/player.ui.json", $"{playerUiRoot}/src/assets/config/settings.env.json", overwrite: true);
 
-        IResourceBuilder<ExecutableResource>? playerUiNpmInstall = null;
-
-        if (!Directory.Exists($"{playerUiRoot}/node_modules"))
-        {
-            playerUiNpmInstall = builder.AddExecutable(
-            "player-ui-install",
-            "npm",
-            workingDirectory: playerUiRoot,
-            "install");
-        }
-
         var playerUi = builder.AddNpmApp("player-ui", playerUiRoot)
-                .WithHttpEndpoint(port: 4301, env: "PORT", isProxied: false);
-
-        if (playerUiNpmInstall is not null)
-        {
-            playerUi = playerUi.WaitForCompletion(playerUiNpmInstall);
-        }
+                .WithHttpEndpoint(port: 4301, env: "PORT", isProxied: false)
+                .WithNpmPackageInstallation();
 
         builder.AddPlayerVm(postgres, keycloak);
     }
@@ -95,47 +80,17 @@ public static class BuilderExtensions
 
         File.Copy("./resources/vm.ui.json", $"{vmUiRoot}/src/assets/config/settings.env.json", overwrite: true);
 
-        IResourceBuilder<ExecutableResource>? vmUiNpmInstall = null;
-
-        if (!Directory.Exists($"{vmUiRoot}/node_modules"))
-        {
-            vmUiNpmInstall = builder.AddExecutable(
-            "vm-ui-install",
-            "npm",
-            workingDirectory: vmUiRoot,
-            "install");
-        }
-
         var vmUi = builder.AddNpmApp("player-vm-ui", vmUiRoot)
-                .WithHttpEndpoint(port: 4303, env: "PORT", isProxied: false);
-
-        if (vmUiNpmInstall is not null)
-        {
-            vmUi = vmUi.WaitForCompletion(vmUiNpmInstall);
-        }
+                .WithHttpEndpoint(port: 4303, env: "PORT", isProxied: false)
+                .WithNpmPackageInstallation();
 
         var consoleUiRoot = "/mnt/data/crucible/player/console.ui";
 
         File.Copy("./resources/console.ui.json", $"{consoleUiRoot}/src/assets/config/settings.env.json", overwrite: true);
 
-        IResourceBuilder<ExecutableResource>? consoleUiNpmInstall = null;
-
-        if (!Directory.Exists($"{consoleUiRoot}/node_modules"))
-        {
-            consoleUiNpmInstall = builder.AddExecutable(
-            "console-ui-install",
-            "npm",
-            workingDirectory: consoleUiRoot,
-            "install");
-        }
-
         var consoleUi = builder.AddNpmApp("player-vm-console-ui", consoleUiRoot)
-                .WithHttpEndpoint(port: 4305, env: "PORT", isProxied: false);
-
-        if (consoleUiNpmInstall is not null)
-        {
-            consoleUi = consoleUi.WaitForCompletion(consoleUiNpmInstall);
-        }
+                .WithHttpEndpoint(port: 4305, env: "PORT", isProxied: false)
+                .WithNpmPackageInstallation();
     }
 
     public static void AddCaster(this IDistributedApplicationBuilder builder, IResourceBuilder<PostgresServerResource> postgres, IResourceBuilder<KeycloakResource> keycloak, LaunchOptions options)
@@ -159,24 +114,9 @@ public static class BuilderExtensions
 
         File.Copy("./resources/caster.ui.json", $"{casterUiRoot}/src/assets/config/settings.env.json", overwrite: true);
 
-        IResourceBuilder<ExecutableResource>? casterUiNpmInstall = null;
-
-        if (!Directory.Exists($"{casterUiRoot}/node_modules"))
-        {
-            casterUiNpmInstall = builder.AddExecutable(
-            "caster-ui-install",
-            "npm",
-            workingDirectory: casterUiRoot,
-            "install");
-        }
-
         var casterUi = builder.AddNpmApp("caster-ui", casterUiRoot)
-            .WithHttpEndpoint(port: 4310, env: "PORT", isProxied: false);
-
-        if (casterUiNpmInstall is not null)
-        {
-            casterUiNpmInstall = casterUi.WaitForCompletion(casterUiNpmInstall);
-        }
+            .WithHttpEndpoint(port: 4310, env: "PORT", isProxied: false)
+            .WithNpmPackageInstallation();
     }
 
     public static void AddAlloy(this IDistributedApplicationBuilder builder, IResourceBuilder<PostgresServerResource> postgres, IResourceBuilder<KeycloakResource> keycloak, LaunchOptions options)
@@ -207,24 +147,9 @@ public static class BuilderExtensions
 
         File.Copy("./resources/alloy.ui.json", $"{alloyUiRoot}/src/assets/config/settings.env.json", overwrite: true);
 
-        IResourceBuilder<ExecutableResource>? alloyUiNpmInstall = null;
-
-        if (!Directory.Exists($"{alloyUiRoot}/node_modules"))
-        {
-            alloyUiNpmInstall = builder.AddExecutable(
-            "alloy-ui-install",
-            "npm",
-            workingDirectory: alloyUiRoot,
-            "install");
-        }
-
         var alloyUi = builder.AddNpmApp("alloy-ui", alloyUiRoot)
-                .WithHttpEndpoint(port: 4403, env: "PORT", isProxied: false);
-
-        if (alloyUiNpmInstall is not null)
-        {
-            alloyUi = alloyUi.WaitForCompletion(alloyUiNpmInstall);
-        }
+                .WithHttpEndpoint(port: 4403, env: "PORT", isProxied: false)
+                .WithNpmPackageInstallation();
     }
 
     public static void AddTopoMojo(this IDistributedApplicationBuilder builder, IResourceBuilder<PostgresServerResource> postgres, IResourceBuilder<KeycloakResource> keycloak, LaunchOptions options)
@@ -260,23 +185,8 @@ public static class BuilderExtensions
 
         File.Copy("./resources/topomojo.ui.json", $"{topoUiRoot}/projects/topomojo-work/src/assets/settings.json", overwrite: true);
 
-        IResourceBuilder<ExecutableResource>? topoUiNpmInstall = null;
-
-        if (!Directory.Exists($"{topoUiRoot}/node_modules"))
-        {
-            topoUiNpmInstall = builder.AddExecutable(
-            "topo-ui-install",
-            "npm",
-            workingDirectory: topoUiRoot,
-            "install");
-        }
-
         var topoUi = builder.AddNpmApp("topomojo-ui", topoUiRoot, args: ["topomojo-work"])
-            .WithHttpEndpoint(port: 4201, env: "PORT", isProxied: false);
-
-        if (topoUiNpmInstall is not null)
-        {
-            topoUiNpmInstall = topoUi.WaitForCompletion(topoUiNpmInstall);
-        }
+            .WithHttpEndpoint(port: 4201, env: "PORT", isProxied: false)
+            .WithNpmPackageInstallation();
     }
 }
