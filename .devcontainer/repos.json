@@ -1,59 +1,77 @@
 {
-  "repositories": [
+  "groups": [
     {
-        "name": "player.api",
-        "group": "player",
-        "url": "https://github.com/cmu-sei/player.api"
+      "name": "alloy",
+      "repos": [
+        {
+          "name": "alloy.api",
+          "url": "https://github.com/cmu-sei/alloy.api"
+        },
+        {
+          "name": "alloy.ui",
+          "url": "https://github.com/cmu-sei/alloy.ui"
+        }
+      ]
     },
     {
-        "name": "player.ui",
-        "group": "player",
-        "url": "https://github.com/cmu-sei/player.ui"
+      "name": "caster",
+      "repos": [
+        {
+          "name": "caster.api",
+          "url": "https://github.com/cmu-sei/caster.api"
+        },
+        {
+          "name": "caster.ui",
+          "url": "https://github.com/cmu-sei/caster.ui"
+        }
+      ]
     },
     {
-        "name": "vm.api",
-        "group": "player",
-        "url": "https://github.com/cmu-sei/vm.api"
+      "name": "libraries",
+      "repos": [
+        {
+          "name": "crucible-common-dotnet",
+          "url": "https://github.com/cmu-sei/crucible-common-dotnet"
+        }
+      ]
     },
     {
-        "name": "vm.ui",
-        "group": "player",
-        "url": "https://github.com/cmu-sei/vm.ui"
+      "name": "player",
+      "repos": [
+        {
+          "name": "console.ui",
+          "url": "https://github.com/cmu-sei/console.ui"
+        },
+        {
+          "name": "player.api",
+          "url": "https://github.com/cmu-sei/player.api"
+        },
+        {
+          "name": "player.ui",
+          "url": "https://github.com/cmu-sei/player.ui"
+        },
+        {
+          "name": "vm.api",
+          "url": "https://github.com/cmu-sei/vm.api"
+        },
+        {
+          "name": "vm.ui",
+          "url": "https://github.com/cmu-sei/vm.ui"
+        }
+      ]
     },
     {
-        "name": "console.ui",
-        "group": "player",
-        "url": "https://github.com/cmu-sei/console.ui"
-    },
-    {
-        "name": "caster.api",
-        "group": "caster",
-        "url": "https://github.com/cmu-sei/caster.api"
-    },
-    {
-        "name": "caster.ui",
-        "group": "caster",
-        "url": "https://github.com/cmu-sei/caster.ui"
-    },
-    {
-        "name": "alloy.api",
-        "group": "alloy",
-        "url": "https://github.com/cmu-sei/alloy.api"
-    },
-    {
-        "name": "alloy.ui",
-        "group": "alloy",
-        "url": "https://github.com/cmu-sei/alloy.ui"
-    },
-    {
-        "name": "topomojo",
-        "group": "topomojo",
-        "url": "https://github.com/cmu-sei/TopoMojo"
-    },
-    {
-        "name": "topomojo-ui",
-        "group": "topomojo",
-        "url": "https://github.com/cmu-sei/TopoMojo-ui"
+      "name": "topomojo",
+      "repos": [
+        {
+          "name": "topomojo",
+          "url": "https://github.com/cmu-sei/TopoMojo"
+        },
+        {
+          "name": "topomojo-ui",
+          "url": "https://github.com/cmu-sei/TopoMojo-ui"
+        }
+      ]
     }
   ]
 }
