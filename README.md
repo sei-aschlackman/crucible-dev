@@ -1,9 +1,10 @@
-# crucible-dev
+# crucible-devevelopment
+
 Development Environment for Crucible
 
 # Getting Started
 
-`crucible-dev` is a [Development-Containers](https://containers.dev/)-based solution that uses .NET Aspire to orchestrate the various components of Crucible, along with supporting resources like an identity provider (Keycloak), a Postgres database server, and PGAdmin.
+`crucible-development` is a [Development-Containers](https://containers.dev/)-based solution that uses .NET Aspire to orchestrate the various components of Crucible, along with supporting resources like an identity provider (Keycloak), a Postgres database server, and PGAdmin.
 
 ## Setting up Docker
 
