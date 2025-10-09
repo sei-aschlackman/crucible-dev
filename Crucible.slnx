@@ -5,5 +5,4 @@
   <Project Path="/mnt/data/crucible/alloy/alloy.api/Alloy.Api/Alloy.Api.csproj" />
   <Project Path="/mnt/data/crucible/topomojo/topomojo/src/TopoMojo.Api/TopoMojo.Api.csproj" />
   <Project Path="Crucible.AppHost/Crucible.AppHost.csproj" />
-  <Project Path="Crucible.ServiceDefaults/Crucible.ServiceDefaults.csproj" />
 </Solution>
